@@ -1,4 +1,4 @@
-//swap using pointer
+//swap using pointer-call by reference
 #include <iostream>
 using namespace std;
 void swap(int *x, int *y){
