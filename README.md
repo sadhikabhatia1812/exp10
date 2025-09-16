@@ -1,41 +1,68 @@
-AIM:- to understand different parameter passing methods in c++, especially call by value, call by pointer and call by reference.
+AIM:-
+To study and implement different parameter passing techniques in C++—call by value, call by reference using pointers, and call by reference using reference variables—and observe their effects on variable values.
+
 THEORY:-
-In C++, there are several ways to pass arguments to functions:
-Call by Value:
-The actual values of arguments are copied into the formal parameters of the function.
-Changes made to parameters inside the function do not affect the original arguments.
-Used when the function should not modify the input data.
-Call by Pointer (Simulating Call by Reference using PoiNters):
-Instead of passing the value, the address (pointer) of the variable is passed.
-The function works directly on the memory location of the variables.
-Changes inside the function reflect in the original variables.
-Call by Reference:
-A reference (alias) to the original variable is passed directly.
-The function parameters act as another name for the original arguments.
-Changes in the function modify the original variables.
-Syntax: void func(int &x, int &y)
+Pointers in C++
+A pointer is a variable that stores the address of another variable. Using pointers, we can directly access and modify the memory location of the referenced variable.
+
+Call by Value
+In call by value, copies of actual parameters are passed to the function.
+Changes made inside the function do not affect the original variables.
+Example:
+void swap(int x, int y) {
+    int temp = x;
+    x = y;
+    y = temp;
+}
+Here, x and y are copies of the original arguments.
+
+Call by Reference using Pointers
+The function receives addresses of variables (pointers).
+By dereferencing the pointers, the actual values in memory are changed.
+Example:
+void swap(int *x, int *y) {
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+Here, any modification affects the original variables.
+
+Call by Reference using Reference Variables
+Uses reference variables (&) that act as aliases to the original variables.
+No explicit pointers are required, and changes directly affect the original values.
+Example:
+void swap(int &x, int &y) {
+    int temp = x;
+    x = y;
+    y = temp;
+}
 
 ALGORITHM:-
-Call by Value:
-Copy the values of actual arguments into function parameters.
-Perform the swap on copies.
+For Call by Value
+Start the program and declare two integer variables.
+Define a function swap(int x, int y) that swaps values of x and y.
+Pass the values of two variables to swap().
+Print the variables in main().
+Observe that the original variables remain unchanged.
 
-Return to the main function.
-Observe no change in original variables.
+For Call by Reference using Pointers
+Declare two integer variables.
+Define swap(int *x, int *y) to swap values using dereferenced pointers.
+Pass the addresses of variables to the swap() function.
+Print the variables in main().
+Observe that the original values are swapped.
 
-Call by Pointer:
-Pass addresses of variables to function.
-Inside the function, dereference pointers to access and modify actual variables.
-Swap values at the memory locations.
-Return to main function.
-Observe original variables are swapped.
-
-Call by Reference:
-Pass variables by reference (no copying, no pointers).
-Function parameters become aliases for original variables.
-Swap the variables directly.
-Return to main function.
-Observe original variables swapped.
+For Call by Reference using Reference Variables
+Declare two integer variables.
+Define swap(int &x, int &y) using references to swap values.
+Pass variables directly to the swap() function.
+Print the variables in main().
+Observe that the original values are swapped.
 
 CONCLUSION:-
-Call by value passes copies, so changes inside the function don’t affect the original variables. Call by pointer and call by reference both allow the function to modify the original variables, but call by reference is simpler and safer to use. Understanding these methods helps write efficient and clear code when variable modification is needed.
+In call by value, the original variables remain unchanged since copies are passed.
+In call by reference (pointers) and call by reference (reference variables), changes inside the function directly affect the original variables.
+Pointers give low-level control over memory, while reference variables offer a safer and more readable way to achieve call by reference.
+Understanding these techniques is essential for efficient memory management and data manipulation in C++.
+
