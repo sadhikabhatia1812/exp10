@@ -1,4 +1,4 @@
-AIM:- to understabd different parameter passing methods in c++, especially call by value, call by pointer and call by reference.
+AIM:- to understand different parameter passing methods in c++, especially call by value, call by pointer and call by reference.
 THEORY:-
 In C++, there are several ways to pass arguments to functions:
 Call by Value:
